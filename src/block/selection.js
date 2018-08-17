@@ -6,6 +6,7 @@ define([], function() {
             if (sel && sel.rangeCount > 0) {
                 return sel.getRangeAt(0);
             }
+            return null;
         };
 
         restoreSelection = function(el, sel) {
@@ -25,7 +26,7 @@ define([], function() {
         restoreSelection = function(el, sel) {
             var textRange = document.body.createTextRange();
             textRange.moveToElementText(el);
-            textRange.setStart(sel.startContanier, sel.startOffset);
+            textRange.setStart(sel.startContainer, sel.startOffset);
             textRange.setEnd(sel.endContainer, sel.endOffset);
             textRange.select();
         };
